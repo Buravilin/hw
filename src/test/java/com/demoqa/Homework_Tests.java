@@ -16,24 +16,25 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class Homework_Tests {
     File file = new File("src/test/resources/images.jpg");
-    String name = "Alex";
+    String firstName = "Alex";
+    String lastName = "Ivanov";
     String email = "alex@alex.ru";
     String number = "9999999999";
 
     @BeforeAll
-    static void setUp () {
+    static void setUp() {
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = "1920x720";
         Configuration.holdBrowserOpen = true;
     }
+
     @Test
-    void fillFormTest()
-    {
+    void fillFormTest() {
         open("/automation-practice-form");
         zoom(0.5);
         //region Name
-        $("#firstName").setValue(name);
-        $("#lastName").setValue("Ivanov");
+        $("#firstName").setValue(firstName);
+        $("#lastName").setValue(lastName);
         //endregion
         $("#userEmail").setValue(email);
         $("#genterWrapper").$(byText("Male")).click();
@@ -62,13 +63,11 @@ public class Homework_Tests {
         $("#city").click();
         $("#city").$(byText("Lucknow")).click();
         //endregion
-
         $("#submit").click();
-
-        $(".table-responsive").shouldHave(text(name));
-        $(".table-responsive").shouldHave(text(email));
-        $(".table-responsive").shouldHave(text(number));
-        $(".table-responsive").shouldHave(text("Maths"));
-        $(".table-responsive").shouldHave(text("images.jpg"));
+        $(".table-responsive").shouldHave(text(firstName), text(lastName),
+                text(email),  text("Male"), text("Male"),text(number), text("01 August,1995"), text("Sports"),
+                text("Reading"), text("Music"),  text("images.jpg"), text("st. Kommynna 9"),
+                text("Uttar Pradesh"), text("Lucknow"));
     }
 }
+
