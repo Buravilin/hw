@@ -20,6 +20,7 @@ public class Homework_Tests {
     String lastName = "Ivanov";
     String email = "alex@alex.ru";
     String number = "9999999999";
+    String address ="st. Kommynna 9";
 
     @BeforeAll
     static void setUp() {
@@ -53,7 +54,7 @@ public class Homework_Tests {
         $("#uploadPicture").uploadFile(new File("src/test/resources/images.jpg"));
         //endregion
         //region Адрес
-        $("#currentAddress").setValue("st. Kommynna 9");
+        $("#currentAddress").setValue(address);
         //endregion
         //region Город и Штат
         SelenideElement a = $("#state");
@@ -65,8 +66,8 @@ public class Homework_Tests {
         //endregion
         $("#submit").click();
         $(".table-responsive").shouldHave(text(firstName), text(lastName),
-                text(email),  text("Male"), text("Male"),text(number), text("01 August,1995"), text("Sports"),
-                text("Reading"), text("Music"),  text("images.jpg"), text("st. Kommynna 9"),
+                text(email),  text("Male"),text(number), text("01 August,1995"), text("Sports"),
+                text("Reading"), text("Music"),  text("images.jpg"), text(address),
                 text("Uttar Pradesh"), text("Lucknow"));
     }
 }
