@@ -53,5 +53,13 @@ public class Homework4 {
         4 < <= > >=
         5 == !=
         6 && || */
+
+
+        //Переполнение
+
+        int integer1 = Integer.MAX_VALUE + 1;
+        System.out.println(integer1 + " = Max_int + 1");
+        long integer2 = Long.MIN_VALUE - 1;
+        System.out.println(integer2 + " = Min_long - 1");
     }
 }
